@@ -1,8 +1,7 @@
 POST Login
-IN: string username, string password, string client_id
+IN: string username, string password
 OUT: 200= "Login Success"- "Access Token" -> { string access_token,
-				      string token_type,
-				      int expires_in; }
+				      	int expires_in; }
 ERR: 401= "Incorrect Credentials"
 
 
@@ -12,10 +11,15 @@ OUT: 202= "Accepted"
 ERR: 404= "User not found"
 
 POST ChangePassword
-IN string token, string newPassword
+IN string token, string oldPassword, string newPassword
 OUT: 204 = “No Content”
 
 POST RegisterUser
 IN: string username, string password, string email
 OUT: 200= "User registered"
 ERR: 412= "Required property is missing"
+
+POST CheckToken
+IN: string token
+OUT: string username
+ERR: 401 = "Invalid token"
