@@ -1,9 +1,3 @@
-appengine {
-    deploy {
-        version = "GCLOUD_CONFIG"
-        projectId = "GCLOUD_CONFIG"
-    }
-}
 buildscript {
 	ext {
 		springBootVersion = '1.5.8.RELEASE'
@@ -34,6 +28,7 @@ repositories {
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter')
+	compile 'com.google.appengine:appengine-api-1.0-sdk:+'
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	compile('org.springframework.security.oauth:spring-security-oauth2')
 	compile('org.springframework.boot:spring-boot-starter-web')
