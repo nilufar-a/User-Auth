@@ -1,3 +1,9 @@
+appengine {
+    deploy {
+        version = "GCLOUD_CONFIG"
+        projectId = "GCLOUD_CONFIG"
+    }
+}
 buildscript {
 	ext {
 		springBootVersion = '1.5.8.RELEASE'
