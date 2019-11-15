@@ -1,18 +1,12 @@
 POST Login
 IN: string username, string password
-OUT: 200= "Login Success"- "Access Token" -> { string access_token,
-				      	int expires_in; }
+OUT: 200= "Login Success"- "Access Token" -> { string access_token }
 ERR: 401= "Incorrect Credentials"
 
-
-POST ForgotPassword
-IN: string username
-OUT: 202= "Accepted"
-ERR: 404= "User not found"
-
-POST ChangePassword
-IN string token, string oldPassword, string newPassword
-OUT: 204 = “No Content”
+POST Logout
+IN: string token
+OUT: 200="OK"
+ERR: 401="Unauthorized"
 
 POST RegisterUser
 IN: string username, string password, string email
@@ -22,4 +16,13 @@ ERR: 412= "Required property is missing"
 POST CheckToken
 IN: string token
 OUT: string username
-ERR: 401 = "Invalid token"
+ERR: 404 = "Not Found"
+
+POST RegisterAI
+OUT: string username, string token
+ERR: 404 = "Not Found"
+
+DELETE DeleteUser
+IN: string token
+OUT: 200= "OK"
+ERR: 404= "Not Found"
