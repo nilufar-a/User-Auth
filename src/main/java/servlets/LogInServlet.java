@@ -34,18 +34,12 @@ public class LogInServlet extends HttpServlet{
 
         if(UserAuth.newAccountAuthorization(username)==false)
         {
-            if(Token.userExists(username)==false)
-            {
                 responseFlag =UserAuth.userAuthenticated(username, password);
 
                 if(responseFlag == true )
                 {
 
                     Token token = new Token(username, Token.nextToken());
-                    while(Token.tokenExists(token.getToken())==true)
-                    {
-                        token = new Token(username, Token.nextToken());
-                    }
                     token.addTokenToDataBase();
                     json = gson.toJson(token);
                     out.print(json);
@@ -53,19 +47,13 @@ public class LogInServlet extends HttpServlet{
                 else
                 {
                     json = gson.toJson(HttpStatusCodes.STATUS_CODE_UNAUTHORIZED);
-                    out.print(gson.toJson("Error"+json));
+                    out.print(json);
                 }
-            }
-            else
-            {
-                json = gson.toJson(HttpStatusCodes.STATUS_CODE_UNAUTHORIZED);
-                out.print(gson.toJson("Error: "+json));
-            }
         }
         else
         {
             json = gson.toJson(HttpStatusCodes.STATUS_CODE_UNAUTHORIZED);
-            out.print("Error: "+json);
+            out.print(json);
         }
 
     }

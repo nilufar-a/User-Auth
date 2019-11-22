@@ -29,7 +29,7 @@ public class RegisterAIServlet extends HttpServlet {
         PrintWriter out = resp.getWriter();
         
         Random rand = new Random();
-        int n= rand.nextInt(100000);
+        int n= rand.nextInt(10000000);
         
         String username = "AI"+n;
         String password = "AI"+n;
@@ -47,10 +47,10 @@ public class RegisterAIServlet extends HttpServlet {
 
              token.addTokenToDataBase();
              json = gson.toJson(token);
-             out.print( json);
+             out.print(json);
         }
         else
-        out.print(gson.toJson("Error: "+HttpStatusCodes.STATUS_CODE_UNAUTHORIZED));
+        out.print(gson.toJson(HttpStatusCodes.STATUS_CODE_UNAUTHORIZED));
     }
 
 }

@@ -28,14 +28,15 @@ public class DeleteUserServlet extends HttpServlet {
 
         Gson gson = new Gson();
         
-        if (Token.tokenExists(token)==false)
+        if (Token.tokenExists(token)==true)
         {
 
         	String username = Token.getUsernameOfToken(token);
         	User.deleteAccount(username);
+        	out.print(gson.toJson(HttpStatusCodes.STATUS_CODE_OK));
         }
         else {
-        	out.print("Error: "+ HttpStatusCodes.STATUS_CODE_NOT_FOUND);
+        	out.print(gson.toJson(HttpStatusCodes.STATUS_CODE_NOT_FOUND));
         }
 
     }

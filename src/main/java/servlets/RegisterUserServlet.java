@@ -37,7 +37,7 @@ public class RegisterUserServlet extends HttpServlet {
         {
 
 
-             User user = new User(username, password, email, password.toCharArray(), Password.getNextSalt());
+             User user = new User(username, email, password.toCharArray(), Password.getNextSalt());
 
              User.addNewUserToDataBase(user);
              out.print(gson.toJson(HttpStatusCodes.STATUS_CODE_CREATED));
@@ -48,7 +48,7 @@ public class RegisterUserServlet extends HttpServlet {
              out.print( json);*/
         }
         else
-        out.print(gson.toJson("Error: "+HttpStatusCodes.STATUS_CODE_UNAUTHORIZED));
+        out.print(gson.toJson(HttpStatusCodes.STATUS_CODE_UNAUTHORIZED));
     }
 
 }

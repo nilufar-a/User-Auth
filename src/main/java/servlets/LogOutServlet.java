@@ -31,11 +31,11 @@ public class LogOutServlet extends HttpServlet {
         if(Token.tokenExists(token))
         {
             Token.deleteToken(token);
-            out.print(gson.toJson("Success: "+HttpStatusCodes.STATUS_CODE_OK));
+            out.print(gson.toJson(HttpStatusCodes.STATUS_CODE_OK));
         }
         else
         {
-            out.print(gson.toJson("Error: "+HttpStatusCodes.STATUS_CODE_UNAUTHORIZED));
+            out.print(gson.toJson(HttpStatusCodes.STATUS_CODE_UNAUTHORIZED));
 
         }
 

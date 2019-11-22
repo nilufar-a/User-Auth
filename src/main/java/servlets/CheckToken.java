@@ -31,11 +31,11 @@ public class CheckToken extends HttpServlet {
         if (Token.tokenExists(token)==false)
         {
 
-            out.print (gson.toJson("Error: "+HttpStatusCodes.STATUS_CODE_NOT_FOUND));
+            out.print (gson.toJson(HttpStatusCodes.STATUS_CODE_NOT_FOUND));
         }
         else
         {
-            out.print( gson.toJson("username: "+Token.getUsernameOfToken(token)));
+            out.print( gson.toJson(Token.getUsernameOfToken(token)));
         }
     }
 }
