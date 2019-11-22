@@ -1,6 +1,6 @@
 POST Login
 IN: string username, string password
-OUT: 200= "Login Success"- "Access Token" -> { string access_token }
+OUT: 200= "Login Success"- "Access Token" -> { string access_token, string username }
 ERR: 401= "Incorrect Credentials"
 
 POST Logout
@@ -10,8 +10,8 @@ ERR: 401="Unauthorized"
 
 POST RegisterUser
 IN: string username, string password, string email
-OUT: 200= "User registered"
-ERR: 412= "Required property is missing"
+OUT: 201= "User registered"
+ERR: 401= "Failed to create user"
 
 POST CheckToken
 IN: string token
