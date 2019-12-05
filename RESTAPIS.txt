@@ -1,6 +1,6 @@
 POST Login
 IN: string username, string password
-OUT: 200= "Login Success"- "Access Token" -> { string access_token, string username }
+OUT: string token, string username
 ERR: 401= "Incorrect Credentials"
 
 POST Logout
@@ -20,7 +20,7 @@ ERR: 404 = "Not Found"
 
 POST RegisterAI
 OUT: string username, string token
-ERR: 404 = "Not Found"
+ERR: 401 = "Not Authorized"
 
 DELETE DeleteUser
 IN: string token
