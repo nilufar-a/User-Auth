@@ -8,7 +8,7 @@ IN: string token
 OUT: 200="OK"
 ERR: 401="Unauthorized"
 
-POST RegisterUser
+POST Register
 IN: string username, string password, string email
 OUT: 201= "User registered"
 ERR: 401= "Failed to create user"
