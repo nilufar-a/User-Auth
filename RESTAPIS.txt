@@ -13,7 +13,7 @@ IN: string username, string password, string email
 OUT: 201= "User registered"
 ERR: 401= "Failed to create user"
 
-POST CheckToken
+GET CheckToken
 IN: string token
 OUT: string username
 ERR: 404 = "Not Found"
